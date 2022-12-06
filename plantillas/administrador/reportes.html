@@ -1,0 +1,139 @@
+{% extends 'template.html' %}
+{% block extracss %}
+    <!-- Datatables -->
+    <link href="/static/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/scroller.bootstrap.min.css" rel="stylesheet">
+    {% block extrahead_list %}
+
+    {% endblock %}
+{% endblock %}
+{% block cuerpo %} 
+<div class="x_panel">
+    <div class="x_title">
+      <h2>LISTA DE HOTELES REGISTRADOS <small></small></h2>
+      <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Settings 1</a>
+              <a class="dropdown-item" href="#">Settings 2</a>
+            </div>
+        </li>
+        <li><a class="close-link"><i class="fa fa-close"></i></a></li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">        
+        <table  id="datatable-responsive"
+        class="table table-striped table-bordered table condensed table-hover table-responsive"
+        cellspacing="0" width="100%">
+        
+            <thead>
+                <th>ID</th>
+                <th>Reporte</th>                
+                <th></th>
+            </thead>
+            <tbody>
+                <tr>                    
+                    <td>1</td>
+                    <td>Lista de turistas por hotel</td>                                       
+                    <td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target=".bs-example-modal-lg2"><i class="fa fa-print"></i></a></td>
+                </tr>
+                <tr>                    
+                  <td>2</td>
+                  <td>Partes hoteleras</td>                                       
+                  <td><a href="#" class="btn btn-primary btn-xs" data-toggle="modal" data-target=".bs-example-modal-lg3"><i class="fa fa-print"></i></a></td>
+              </tr>
+            </tbody>    
+        </table>  
+    </div>    
+  </div>
+
+   <!---------------- MODAL PARA BUSCAR   ------------------------->
+   <div class="modal fade bs-example-modal-lg2" id="bs-example-modal-lg2" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Parametros del reporte</h4>
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+               <form id="formreporte" method="post" action="/administrador/reportes"> {% csrf_token %}
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                    <label>Fecha inicial:</label>                
+                    <input type="date" id="fecha_inicial" name="fecha_inicial" value="" class="form-control">
+                    <span class="fa fa-info form-control-feedback right" aria-hidden="true"></span>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                    <label>Fecha final:</label>                
+                    <input type="date" id="fecha_final" name="fecha_final" value="" class="form-control">
+                    <span class="fa fa-info form-control-feedback right" aria-hidden="true"></span>
+                </div>
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                    <label>Hotel:</label>                
+                    <select id="id_hotel" name="id_hotel" class="form-control">
+                        {% for hotel in hoteles %}
+                        <option value="{{ hotel.id }}">{{ hotel.nombre_hotel }}</option>
+                        {% endfor %}
+                    </select><input type="hidden" id="opcion" name="opcion" value="1">    
+                    <span class="fa fa-info form-control-feedback right" aria-hidden="true"></span>
+                </div>
+                <button type="submit">Generar reporte</button>
+               </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div> 
+<!---------------- MODAL PARA BUSCAR   ------------------------->
+<!---------------- MODAL PARA BUSCAR   ------------------------->
+<div class="modal fade bs-example-modal-lg3" id="bs-example-modal-lg2" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Parametros del reporte</h4>
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+             <form id="formreporte1" method="post" action="/administrador/reportes"> {% csrf_token %}
+              <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                  <label>Fecha:</label>                
+                  <input type="date" id="fecha_inicial" name="fecha_inicial" value="" class="form-control">
+                  <span class="fa fa-info form-control-feedback right" aria-hidden="true"></span>
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                  <label>Hotel:</label>                
+                  <select id="id_hotel" name="id_hotel" class="form-control">
+                      {% for hotel in hoteles %}
+                      <option value="{{ hotel.id }}">{{ hotel.nombre_hotel }}</option>
+                      {% endfor %}
+                  </select>   <input type="hidden" id="opcion" name="opcion" value="2">     
+                  <span class="fa fa-info form-control-feedback right" aria-hidden="true"></span>
+              </div>
+              <button type="submit">Generar reporte</button>
+             </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div> 
+<!---------------- MODAL PARA BUSCAR   ------------------------->
+  {% endblock %}
+  {% block extrajs %}
+  
+  {% endblock %}

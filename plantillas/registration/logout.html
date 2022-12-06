@@ -1,0 +1,33 @@
+﻿{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<style type="text/css">
+	hr{
+		border: 2px solid white;
+	}
+</style>
+
+<br>
+<br>
+<br>
+<center>
+
+<!--hr class="ribbed-black"-->
+	<h1 class='fg-white leader' style="color: white;"><b>{% trans "Sesión Terminada" %}</b></h1>
+<!--hr-->
+
+<img src="/static/images/logo5.png" class="img-responsive avatar-view" style="width: 35%; background-color: rgba(255,255,255,0); border: 1px solid rgba(255,255,255,0);" >
+<!--hr-->
+<h1 class='fg-white' style="color: white;">SINERGIA</h1>
+<h4 class='fg-white' style="color: white;">Gobierno Autónomo Departamental de Potosí</h4>
+<!--hr-->
+</center>
+<script type="text/javascript">
+	function r(){
+		location.href='login.html';
+
+	}
+	setTimeout(r,3000);
+</script>
+{% endblock %}

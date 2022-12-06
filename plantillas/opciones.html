@@ -1,0 +1,36 @@
+<style type="text/css">
+.texto {
+	color: #000;
+	size:6;
+}
+</style>
+{% block content %}
+ <blockquote>
+          <pre>
+ 		  <table>
+          <tr>
+          <td><img src="{{ STATIC_URL }}images/reg.fw.png" width="26" height="30" /></td><td><a href="/registro"><strong class="texto">Nuevo Empleado</strong></a></td>
+          </tr>
+          <tr>
+          <td><img src="{{ STATIC_URL }}images/reg.fw.png" width="26" height="30" /></td><td><a href="/buscarPersonalM"><strong class="texto">Modificar Empleado</strong></a></td></tr>
+          <tr>
+          <td><img src="{{ STATIC_URL }}images/desplazamientos.fw.png" width="26" height="30" /></td><td><a href="/desplazamientos"><strong class="texto">Desplazamientos</strong></a></td>
+          <tr>
+          <td><img src="{{ STATIC_URL }}images/cargos.fw.png" width="26" height="30" /></td><td><a href="/cargos"><strong class="texto">Cargos</strong></a></td>
+          </tr>
+          <tr>
+          <td><img src="{{ STATIC_URL }}images/historial.fw.png" width="26" height="30" /></td><td><a href="/buscarHistorial"><strong class="texto">Historial</strong></a></td>
+          </tr>
+          <tr><td><img src="{{ STATIC_URL }}images/huella.fw.png" width="26" height="30" /></td><td><a href="/buscarPersonalH"><strong class="texto">Huella</strong></a></td>
+          </tr>
+		  <tr>	
+          <td><img src="{{ STATIC_URL }}images/llaves.fw.png" width="26" height="30" /></td><td><a href="/cambiar_pass"><strong class="texto">Contraseña</strong></a></td>
+          </tr>
+		  <tr>
+          <td><img src="{{ STATIC_URL }}images/puerta.fw.png" width="26" height="30" /></td><td><a href="/accounts/logout"><strong class="texto">Cerrar</strong></a></td>          
+          </tr>
+          </table>
+          
+          </pre>
+        </blockquote>
+{% endblock %}

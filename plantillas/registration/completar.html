@@ -1,0 +1,90 @@
+{% extends "template.html" %}
+{% load i18n %}
+{% block deuda %}
+{% include "contratos/alerta.html" %}
+{% endblock deuda %}
+{% block cuerpo %}
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_title">
+            <h1>ACTUALIZAR DATOS PERSONALES</h1>
+                <div class="clearfix"></div>
+        </div>
+    	<div class="col-md-6 col-sm-6 col-xs-12">
+    		<form action="" method="POST" enctype="multipart/form-data">
+				<table class='table' >
+					{% csrf_token %}
+					{{formulario}}
+					<input type='hidden' value='{{perfils.foto_bits}}' name='imagen'>
+					{{formuser}}
+					<tr><td colspan='2'> <input type=submit value='ACTUALIZAR' class="btn btn-success"> </td></tr>
+				</table>
+			</form>
+    	</div>
+<style type="text/css">
+	#list{
+		width: 62.6%;
+	}
+	#imagen_dato{
+		border-radius: 100%;
+		border: 7px solid rgba(255,5,0,0.5);	
+		background-color: white;
+	}
+</style>
+    	<div class="col-md-6 col-sm-6 col-xs-12">
+    		<table class='table' >
+    			<tr>
+    				<td >
+			    		<center>
+			    		<output id="list"><img src="data:image/png;base64,{{perfils.foto_bits}}" class='img-responsive avatar-view' id='imagen_dato' ></output>
+			    		<br>
+			    		</center>
+			    	</td>
+    			</tr>
+    			<tr>
+    				<td>
+			    		<form name='imagen' method='POST' action='/cambiar_imagen/' enctype="multipart/form-data">
+			    		{% csrf_token %}
+			    		<input type="file" id="fotografia" name="fotografia" class='form-control' required='required'>
+		    		</td>
+    			</tr>
+    			<tr>
+    				<td>
+    					<input type='submit' value='ACTUALIZAR FOTOGRAFIA' class="btn btn-success">
+    				</td>
+    			</tr>
+    		</table>
+    		</form>
+    		
+		        <script>
+		              function archivo(evt) {
+		                  var files = evt.target.files; // FileList object
+		             
+		                  // Obtenemos la imagen del campo "file".
+		                  for (var i = 0, f; f = files[i]; i++) {
+		                    //Solo admitimos imágenes.
+		                    if (!f.type.match('image.*')) {
+		                        continue;
+		                    }
+		             
+		                    var reader = new FileReader();
+		             
+		                    reader.onload = (function(theFile) {
+		                        return function(e) {
+		                          // Insertamos la imagen
+		                         document.getElementById("list").innerHTML = ['<img class="img-responsive avatar-view thumb" src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
+		                        };
+		                    })(f);
+		             
+		                    reader.readAsDataURL(f);
+		                  }
+		              }
+		             
+		              document.getElementById('fotografia').addEventListener('change', archivo, false);
+		      </script>
+    	</div>
+    </div>
+</div>
+
+{% endblock %}

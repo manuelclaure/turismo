@@ -1,0 +1,12 @@
+version: '3.3'
+
+services:
+  web:
+    build: .
+    command: python3.8 manage.py runserver 0.0.0.0:8010
+    volumes:
+      - ./code
+    ports:
+      - 8010:8010
+    env_file:
+      - ./.env.dev

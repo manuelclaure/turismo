@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<div class="d-flex justify-content-center h-100">
+    <div class="card">
+        <div class="card-header">
+            <h3>Sign In</h3>
+            <div class="d-flex justify-content-end social_icon">
+                <span><i class="fab fa-facebook-square"></i></span>
+                <span><i class="fab fa-google-plus-square"></i></span>
+                <span><i class="fab fa-twitter-square"></i></span>
+            </div>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="username">
+                    
+                </div>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" class="form-control" placeholder="password">
+                </div>
+                <div class="row align-items-center remember">
+                    <input type="checkbox">Remember Me
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Login" class="btn float-right login_btn">
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+            <div class="d-flex justify-content-center links">
+                Don't have an account?<a href="#">Sign Up</a>
+            </div>
+            <div class="d-flex justify-content-center">
+                <a href="#">Forgot your password?</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="login-form padding20 block-shadow">
+        <form action='.' method='POST'>
+            {% csrf_token %}
+            <h1 class="text-light">Inicio de Sesión</h1>
+            <hr class="thin"/>
+            <br />
+            <div class="input-control text full-size" data-role="input">
+                <label for="user_login">Usuario</label>
+                <input type="text" name="username" id="user_login">
+                <button class="button helper-button clear"><span class="mif-cross"></span></button>
+            </div>
+            <br />
+            <br />
+            <div class="input-control password full-size" data-role="input">
+                <label for="user_password">Contraseña:</label>
+                <input type="password" name="password" id="user_password">
+                <button class="button helper-button reveal"><span class="mif-looks"></span></button>
+            </div>
+            <br />
+            <br />
+            <div class="form-actions">
+                <button type="submit" class="button primary"><span class='mf-user icon' ></span>  Ingresar...</button>
+                <!--button type="button" class="button link">Cancel</button-->
+            </div>
+        </form>
+    </div>
+{% endblock %}

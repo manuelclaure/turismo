@@ -1,0 +1,195 @@
+<div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>REGISTRO DE PERSONAL </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                    <!-- Smart Wizard -->                    
+                    <div id="wizard" class="form_wizard wizard_horizontal">
+                      <ul class="wizard_steps anchor">
+                        <li>
+                          <a href="#step-1" class="done" isdone="1" rel="1">
+                            <span class="step_no">1</span>
+                            <span class="step_descr">
+                                              Paso 1<br>
+                                              <small>Paso 1 Identificacion</small>
+                                              <!-- Identificacion del personal -->
+                                          </span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#step-2" class="selected" isdone="1" rel="2">
+                            <span class="step_no">2</span>
+                            <span class="step_descr">
+                                              Paso 2<br>
+                                              <small>Paso 2 Datos personales</small>
+                                              <!-- Datos Personales -->
+                                          </span>
+                          </a>
+                        </li>                        
+                      </ul>
+       <form class="form-horizontal form-label-left input_mask" action="" id="form1" name="form1" method="post">{%%}                
+       <div id="step-1" style="display: none;">
+          <h2 class="StepTitle">Paso 1 Descripcion del Proyecto</h2> 
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+               <label class="control-label">Codigo sisin</label>
+               {{ form.ci }}{{ form.ci.errors }}               
+               <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+               <label class="control-label">Codigo sisin</label>
+               {{ form.expedido }} {{ form.expedido.errors }}               
+               <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+          </div>    
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+               <label class="control-label">Titulo</label>
+               {{ form.titulo }} {{ form.titulo.errors }}               
+               <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+          </div>    
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+               <label class="control-label">Nombre</label>
+               {{ form.nombre }} {{ form.nombre.errors }}               
+               <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+          </div>    
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+               <label class="control-label">Apellido Paterno</label>
+               {{ form.a_paterno }} {{ form.a_paterno.errors }}               
+               <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+          </div>     
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+               <label class="control-label">Apellido Materno</label>
+               {{ form.a_materno }} {{ form.a_materno.errors }}               
+               <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+          </div>     
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+               <label class="control-label">Apellido Casada</label>
+               {{ form.ap_casada }} {{ form.ap_casada.errors }}               
+               <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+          </div>     
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+               <label class="control-label">Fecha Nacimiento</label>
+               {{ form.fecha_nac }} {{ form.fecha_nac.errors }}               
+               <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+          </div>        
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+               <label class="control-label">Fecha Nacimiento</label>
+               {{ form.sexo }} {{ form.sexo.errors }}               
+               <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+          </div>  
+          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+               <label class="control-label">Estado Civil</label>
+               {{ form.estado_civil}} {{ form.estado_civil.erros }}
+               {{ form.foto1 }}                
+               <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+          </div>        
+       </div>
+       <div id="step-2" style="display: block;">
+            <h2 class="StepTitle">Paso 2 Datos Personales</h2> 
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                     <label class="control-label">Nacionalidad</label>
+                     {{ form.nacionalidad }} {{ form.nacionalidad.errors}} 
+                     <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+                </div> 
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                     <label class="control-label">Departamento</label>
+                     {{ form.id_departamento }} {{ form.id_departamento.errors }} 
+                     <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+                </div>  
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                     <label class="control-label">Provincia</label>
+                     {{ form.id_provincia }} {{ form.id_provincia.errors }}
+                     <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+                </div>              
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                     <label class="control-label">Calle/Avenida/Pasaje</label>
+                     {{ form.direccion }} {{ form.direccion.erros }}
+                     <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+                </div>              
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                     <label class="control-label">Zona</label>
+                     {{ form.zona_domicilio }} {{ form.zona_domicilio.errors }}
+                     <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+                </div>              
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                     <label class="control-label">Correo</label>
+                     {{ form.correo }} {{ form.correo.errors }}
+                     <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+                </div>              
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                     <label class="control-label">Celular</label>
+                     {{ form.celular }} {{ form.celular.errors }}
+                     <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+                </div> 
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                     <label class="control-label">Telefono</label>
+                     {{ form.telefono }} {{ form.telefono.errors }}
+                     <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+                </div>  
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                     <label class="control-label">NUA</label>
+                     {{ form.nua }} {{ form.nua.errors }}
+                     <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+                </div> 
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                     <label class="control-label">Cuenta Bancaria</label>
+                     {{ form.cuenta_bancaria }} {{ form.cuenta_bancaria.errors }}
+                     <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+                </div>            
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                     <label class="control-label">Profesion</label>
+                     {{ form.profesion }} {{ form.profesion.errors }}
+                     <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+                </div>            
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                     <label class="control-label">Grupo Sanguineo</label>
+                     {{ form.g_sanguineo }} {{ form.g_sanguineo.errors }}
+                     <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+                </div>            
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                     <label class="control-label">Grupo Sanguineo</label>
+                     {{ form.nro_tramite_cas }} {{ form.nro_tramite_cas.errors }}
+                     <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+                </div>            
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                     <label class="control-label">A�os</label>
+                     {{ form.anios_calificados }} {{ form.anios_calificados.errors }}
+                     <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+                </div>            
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                     <label class="control-label">Meses</label>
+                     {{ form.meses_calificados }} {{ form.meses_calificados.errors }}
+                     <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+                </div>            
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                     <label class="control-label">Dias Calificados</label>
+                     {{ form.dias_calificados }} {{ form.dias_calificados.errors }}
+                     <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+                </div>            
+                <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                     <label class="control-label">Discapacitado</label>
+                     {{ form.discapacitado }} {{ form.discapacitado.errors }}
+                     <span class="fa fa-user form-control-feedback rigth" aria-hidden="true"></span>
+                </div>            
+        </div>        
+        </form>
+                    <!-- End SmartWizard Content -->
+                  <div class="stepContainer" style="height: 481px;"></div><div class="actionBar"><div class="msgBox"><div class="content"></div><a href="#" class="close">X</a></div><div class="loader">Loading</div><a href="#" class="buttonNext btn btn-success">Siguiente</a><a href="#" class="buttonPrevious btn btn-primary">Anterior</a></div></div>
+                </div>
+              </div>
+              </div>

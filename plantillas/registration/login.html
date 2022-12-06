@@ -1,0 +1,87 @@
+{% load static %}
+<html>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.f09d9ba0.chunk.css' %}">
+<body class="documenttag x13d p_AFMaximized" style="background-image: url('{% static '/images/fondo.png' %}'); cursor: auto;">	
+<div class="container">
+	<div class="d-flex justify-content-center h-100">			
+				<script>
+					function talk(texto) {		
+						var msg = new SpeechSynthesisUtterance();
+						msg.lang = 'es-ES';
+						msg.text = texto
+						msg.volume = 1; // 0 to 1
+						msg.rate = 1; //document.getElementById("rate").value; // 0.1 to 10
+						msg.pitch = 1; //document.getElementById("pitch").value; //0 to 2
+						msg.volume = 1; //document.getElementById("volume").value; //0 to 2
+						window.speechSynthesis.speak(msg);
+		
+						msg.onstart = function (e) {
+							//document.getElementById("msj").innerHTML = 'Hablando...';
+							console.log('Hablando...');
+						};
+		
+						msg.onend = function (e) {
+							//document.getElementById("msj").innerHTML = 'Finalizado en ' + event.elapsedTime + ' segundos.';
+							//console.log('Finalizado en ' + event.elapsedTime + ' segundos.');
+							document.login-form.submit();
+						};
+					}
+				</script>
+
+		<div class="app-login-content">
+			<div class="card-header">
+				<h2> <img src="{% static 'images/candado.png' %}"> Inicio de sessión2</h2>				
+			</div>
+			<div class="card-body">
+				<img src="{% static 'images/logo.png' %}">
+				<img src="{% static 'images/asistente.png' %}">
+				
+				<form action="." method="POST" id="login-form" name="login-form">{% csrf_token %}              
+					<div class="input-group form-group">
+						<div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+							<span class="input-group-text" aria-hidden="true"><i class="fas fa-user"></i> -  Usuario</span>							
+							<input name="username" id="username" type="text" class="form-control" placeholder="Usuario">						
+						</div>					
+					</div>
+					<div class="input-group form-group">						
+						<div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">							
+							<span class="input-group-text"><i class="fas fa-key"></i> -   Password</span>
+							<input name="password" id="password" type="password" class="form-control" placeholder="password">
+						</div>						
+					</div>
+					<div class="row align-items-center remember">
+						<input type="checkbox">Recuerdame
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Login" class="btn float-right login_btn" onclick="talk('Verificando el usuario');">
+					</div>
+				</form>
+			</div>
+			<div class="card-footer" id="demo1player">
+				<div class="d-flex justify-content-center links">
+					No tiene una cuenta?<a href="#">Iniciar seccion aqui</a>
+				</div>
+				<div class="d-flex justify-content-center">
+					<a href="#">Olvido su contraseña?</a>
+				</div>
+			</div>		
+		</div>
+	</div>
+</div>
+<style type="text/css">
+  .login_wrapper{
+    color: rgba(255,255,255,255);
+  }
+  h1:before {
+    border: 1.5px solid white;
+  }
+  h1:after {
+    border: 1.5px solid white;
+  }
+</style>
+</style>
+</body>  
+</html>
